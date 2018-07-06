@@ -10,3 +10,5 @@ git+https://github.com/CodeForAfricaLabs/wbdata.git@dev#egg=wbdata
 git+https://github.com/CodeForAfricaLabs/django-fontawesome.git@master#egg=django-fontawesome
 
 django-debug-toolbar
+
+wagtail-modeltranslation==0.9.0

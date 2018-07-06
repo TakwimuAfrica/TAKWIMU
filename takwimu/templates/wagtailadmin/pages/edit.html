@@ -1,0 +1,38 @@
+{% extends "wagtailadmin/pages/edit.html" %}
+{% load i18n %}
+
+{% block extra_js %}
+    {{ block.super }}
+
+    <script>
+        var translatables = {};
+
+        function change_language(active_language) {
+            for( var key in translatables )
+                translatables[key].map( function(obj) {
+                    obj.toggle(key === active_language)
+                });
+        }
+
+        $(function () {
+            $('ul[class="objects"]').find('label:contains(" [")').each(function () {
+                var label = $.trim($(this).text());
+                var language = label.substr(label.lastIndexOf('[') + 1, 2);
+                if( !(language in translatables))
+                    translatables[language] = [];
+                translatables[language].push($(this).closest('li'));
+            });
+
+            var s = $('<select id="language_select" style="padding:9px; width: auto; margin-left:8px;" />');
+            for (var key in translatables)
+                $('<option />', {value: key, text: key}).appendTo(s);
+            $("ul[class='tab-nav merged']").append(s);
+
+            $("#language_select").on('change', function () {
+                change_language(this.value);
+            });
+
+            change_language("en");
+        });
+    </script>
+{% endblock %}  

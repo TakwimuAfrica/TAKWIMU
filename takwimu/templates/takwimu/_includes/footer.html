@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load wagtail_modeltranslation %}
 
 <footer class="text-light small font-weight-light" style="background: #6196a5 url('{% static 'img/bg/footer-main-bg.jpg'%}') no-repeat center; background-size: cover;">
   <!-- Footer widgets -->
@@ -91,12 +92,21 @@
           <li class="nav-item dropup">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-globe"></i>
-              English
+              {% if request.LANGUAGE_CODE == 'sw' %}
+                  Swahili
+              {% elif request.LANGUAGE_CODE == 'fr' %}
+                  French
+              {% elif request.LANGUAGE_CODE == 'am' %}
+                  Amharic
+              {% else %}
+                  English
+              {% endif %}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Swahili</a>
-              <a class="dropdown-item" href="#">French</a>
-              <a class="dropdown-item" href="#">Chinese</a>
+              <a class="dropdown-item {% if request.LANGUAGE_CODE == 'en' %} active {% endif %}" href="{% change_lang 'en' %}">English</a>
+              <a class="dropdown-item {% if request.LANGUAGE_CODE == 'w' %} active {% endif %}" href="{% change_lang 'sw' %}">Swahili</a>
+              <a class="dropdown-item {% if request.LANGUAGE_CODE == 'fr' %} active {% endif %}" href="{% change_lang 'fr' %}">French</a>
+              <a class="dropdown-item {% if request.LANGUAGE_CODE == 'am' %} active {% endif %}" href="{% change_lang 'am' %}">Amharic</a>
             </div>
           </li>
         </ul>
