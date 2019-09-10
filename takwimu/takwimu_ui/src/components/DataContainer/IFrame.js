@@ -31,6 +31,9 @@ const styles = theme => ({
     border: 0,
     '& .census-chart-embed': {
       background: theme.palette.data.light
+    },
+    '& #census-chart .column-set': {
+      overflowX: 'scroll'
     }
   }
 });

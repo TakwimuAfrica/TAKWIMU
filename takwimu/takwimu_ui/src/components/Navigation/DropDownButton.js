@@ -15,6 +15,7 @@ const styles = theme => ({
     color: theme.palette.text.primary,
     outline: 'none !important',
     margin: '1.25rem 1.75rem',
+    borderRadius: '1.125rem',
     [theme.breakpoints.up('md')]: {
       margin: '0.625rem'
     },
@@ -34,8 +35,7 @@ const styles = theme => ({
   bubble: {
     margin: '-5px -20px',
     padding: '5px 20px',
-    backgroundColor: 'white',
-    borderRadius: '1.125rem'
+    backgroundColor: 'white'
   },
   bubbleArrow: {
     position: 'absolute',
