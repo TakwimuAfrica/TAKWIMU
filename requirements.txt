@@ -4,7 +4,7 @@ git+https://github.com/CodeForAfricaLabs/django-fontawesome.git@feature/python3#
 
 Markdown==3.1.1
 django-meta==1.5.1
-django-debug-toolbar==1.11
+django-debug-toolbar==1.11.1
 elasticsearch==6.3.0
 elasticsearch-dsl==6.3.0
 # https://github.com/benoitc/gunicorn/issues/1194#issuecomment-269836343
